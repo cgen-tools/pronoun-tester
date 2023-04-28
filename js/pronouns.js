@@ -37,6 +37,9 @@ export function processText(text, catDict) {
       const pronouns = catDict[cat][1]; // maps pronoun type to pronoun
       if (type === "PRONOUN") {
         let pronoun = pronouns[pronounType];
+        if (pronoun === undefined) {
+          throw new Error(`${pronoun} not found in pronouns dict`);
+        }  
         if (innerDetails.slice(-1)[0] === "CAP") {
           pronoun = pronoun.charAt(0).toUpperCase() + pronoun.substring(1); // title case
         }
