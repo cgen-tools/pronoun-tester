@@ -35,13 +35,13 @@ export function processText(text, catDict) {
       const cat = innerDetails[1]; // m_c, p_l, etc.
       const pronounType = innerDetails[2];
       const pronouns = catDict[cat][1]; // maps pronoun type to pronoun
-      if (type == "PRONOUN") {
+      if (type === "PRONOUN") {
         let pronoun = pronouns[pronounType];
         if (innerDetails.slice(-1)[0] === "CAP") {
           pronoun = pronoun.charAt(0).toUpperCase() + pronoun.substring(1); // title case
         }
         return pronoun;
-      } else if (type == "VERB") {
+      } else if (type === "VERB") {
         const verb = innerDetails[pronouns.conju + 1];
         return verb;
       }
