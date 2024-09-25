@@ -26,15 +26,30 @@ const inputText = document.getElementById("inputText");
 
 function refreshOutput() {
   const input = inputText.value;
+  showOnlyUsedReplacers();
   outputText.value = processText(input, catDict);
 }
+
+function showOnlyUsedReplacers() {
+  for (const replacer in catDict) {
+    const elem = document.getElementById(`${replacer}-div`);
+    if (inputText.value.includes(replacer)) {
+      elem.classList.remove("d-none");
+    }
+    else {
+      elem.classList.add("d-none");
+    }
+  }
+}
+
 inputText.addEventListener("input", (e) => {
   refreshOutput();
 });
 
 for (const replacer in catDict) {
   const pronounSelector = document.createElement("div");
-  pronounSelector.classList = ["my-2"];
+  pronounSelector.id = `${replacer}-div`;
+  pronounSelector.classList.add("d-none", "my-2");
   pronounSelector.innerHTML = `
   <label for="${replacer}Pronouns">Pronouns for ${replacer}:</label>
   <select data-replacer="${replacer}" class="form-select" name="${replacer}Pronouns"">
