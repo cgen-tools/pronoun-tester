@@ -29,14 +29,23 @@ function refreshOutput() {
 }
 
 function showOnlyUsedReplacers() {
+  var showPlaceholder = false;
   for (const replacer in catDict) {
     const elem = document.getElementById(`${replacer}-div`);
     if (inputText.value.includes(replacer)) {
+      showPlaceholder = true;
       elem.classList.remove("d-none");
     }
     else {
       elem.classList.add("d-none");
     }
+  }
+
+  if (showPlaceholder) {
+    document.getElementById("pronoun-selectors-placeholder").classList.add("d-none");
+  }
+  else {
+    document.getElementById("pronoun-selectors-placeholder").classList.remove("d-none");
   }
 }
 
