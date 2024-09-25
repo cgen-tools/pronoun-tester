@@ -14,10 +14,6 @@ const catDict = {
 };
 const outputText = document.getElementById("outputText");
 const inputText = document.getElementById("inputText");
-const mcprn = document.getElementById("mcprn");
-const plprn = document.getElementById("plprn");
-const rcprn = document.getElementById("rcprn");
-const scprn = document.getElementById("scprn");
 
 function refreshOutput() {
   const input = inputText.value;
@@ -26,19 +22,21 @@ function refreshOutput() {
 inputText.addEventListener("input", (e) => {
   refreshOutput();
 });
-mcprn.addEventListener("change", (e) => {
-  catDict.m_c[1] = pronounDict[mcprn.value];
-  refreshOutput();
-});
-plprn.addEventListener("change", (e) => {
-  catDict.p_l[1] = pronounDict[plprn.value];
-  refreshOutput();
-});
-rcprn.addEventListener("change", (e) => {
-  catDict.r_c[1] = pronounDict[rcprn.value];
-  refreshOutput();
-});
-scprn.addEventListener("change", (e) => {
-  catDict.s_c[1] = pronounDict[scprn.value];
-  refreshOutput();
-});
+
+for (const replacer in catDict) {
+  const pronounSelector = document.createElement("div");
+  pronounSelector.classList = ["my-2"];
+  pronounSelector.innerHTML = `
+  <label for="${replacer}Pronouns">Pronouns for ${replacer}:</label>
+  <select data-replacer="${replacer}" class="form-select" name="${replacer}Pronouns"">
+    <option value="theyThem">They / them</option>
+    <option value="sheHer">She / her</option>
+    <option value="heHim">He / him</option>
+  </select>`
+  pronounSelector.getElementsByClassName("form-select")[0].addEventListener("change", (e) => {
+    catDict[replacer][1] = pronounDict[e.target.value];
+    refreshOutput();
+  });
+
+  document.getElementById("pronoun-selectors").appendChild(pronounSelector);
+};
