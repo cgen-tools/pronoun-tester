@@ -59,5 +59,8 @@ export function processText(text, catDict) {
   for (const toReplace in catDict) {
     processedText = processedText.replaceAll(toReplace, catDict[toReplace][0]);
   }
+  processedText = processedText.replaceAll("c_n", "ClanName");
+  processedText = processedText.replaceAll("o_c_n", "OtherClan");
+
   return processedText;
 }

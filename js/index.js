@@ -18,8 +18,6 @@ const catDict = {
   app6: ["App6", theyThem],
   lead_name: ["Leader Name", theyThem],
   dep_name: ["Deputy Name", theyThem],
-  c_n: ["ClanName", null],
-  o_c_n: ["OtherClan", null],
 };
 const outputText = document.getElementById("outputText");
 const inputText = document.getElementById("inputText");
