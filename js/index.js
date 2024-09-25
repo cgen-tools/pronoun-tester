@@ -32,11 +32,13 @@ for (const replacer in catDict) {
     <option value="theyThem">They / them</option>
     <option value="sheHer">She / her</option>
     <option value="heHim">He / him</option>
-  </select>`
-  pronounSelector.getElementsByClassName("form-select")[0].addEventListener("change", (e) => {
-    catDict[replacer][1] = pronounDict[e.target.value];
-    refreshOutput();
-  });
+  </select>`;
+  pronounSelector
+    .getElementsByClassName("form-select")[0]
+    .addEventListener("change", (e) => {
+      catDict[replacer][1] = pronounDict[e.target.value];
+      refreshOutput();
+    });
 
   document.getElementById("pronoun-selectors").appendChild(pronounSelector);
-};
+}
