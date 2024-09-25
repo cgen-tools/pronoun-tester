@@ -70,7 +70,7 @@ for (const replacer in catDict) {
   pronounSelector
     .getElementsByClassName("form-select")[0]
     .addEventListener("change", (e) => {
-      catDict[replacer][1] = pronounDict[e.target.value];
+      catDict[e.target.dataset.replacer][1] = pronounDict[e.target.value];
       refreshOutput();
     });
 
