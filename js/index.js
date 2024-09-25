@@ -10,7 +10,16 @@ const catDict = {
   p_l: ["Patrol Leader", theyThem],
   r_c: ["Random Cat", theyThem],
   s_c: ["Stat Cat", theyThem],
+  app1: ["App1", theyThem],
+  app1: ["App2", theyThem],
+  app1: ["App3", theyThem],
+  app1: ["App4", theyThem],
+  app1: ["App5", theyThem],
+  app1: ["App6", theyThem],
+  lead_name: ["Leader Name", theyThem],
+  dep_name: ["Deputy Name", theyThem],
   c_n: ["ClanName", null],
+  o_c_n: ["OtherClan", null],
 };
 const outputText = document.getElementById("outputText");
 const inputText = document.getElementById("inputText");
