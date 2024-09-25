@@ -35,17 +35,19 @@ function showOnlyUsedReplacers() {
     if (inputText.value.includes(replacer)) {
       showPlaceholder = true;
       elem.classList.remove("d-none");
-    }
-    else {
+    } else {
       elem.classList.add("d-none");
     }
   }
 
   if (showPlaceholder) {
-    document.getElementById("pronoun-selectors-placeholder").classList.add("d-none");
-  }
-  else {
-    document.getElementById("pronoun-selectors-placeholder").classList.remove("d-none");
+    document
+      .getElementById("pronoun-selectors-placeholder")
+      .classList.add("d-none");
+  } else {
+    document
+      .getElementById("pronoun-selectors-placeholder")
+      .classList.remove("d-none");
   }
 }
 
