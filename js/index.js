@@ -10,6 +10,7 @@ const catDict = {
   p_l: ["Patrol Leader", theyThem],
   r_c: ["Random Cat", theyThem],
   s_c: ["Stat Cat", theyThem],
+  n_c: ["New Cat", theyThem],
   app1: ["App1", theyThem],
   app2: ["App2", theyThem],
   app3: ["App3", theyThem],
