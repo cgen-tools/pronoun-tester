@@ -22,10 +22,7 @@ const catDict = {
 };
 const outputText = document.getElementById("outputText");
 const inputText = document.getElementById("inputText");
-const characterCount = document.getElementById("output-character-count");
-const pronounQuickAddList =
-  document.getElementsByClassName("pronoun-quick-add");
-const verbQuickAdd = document.getElementById("verb-quick-add");
+const characterCount = document.getElementById("output-character-count")
 
 function refreshOutput() {
   const input = inputText.value;
@@ -58,31 +55,6 @@ function showOnlyUsedReplacers() {
 }
 
 inputText.addEventListener("input", (e) => {
-  refreshOutput();
-});
-
-for (let i = 0; i < pronounQuickAddList.length; i++) {
-  const pronounQuickAdd = pronounQuickAddList[i];
-  pronounQuickAdd.addEventListener("click", (e) => {
-    const selectionStart = inputText.selectionStart;
-    const selectionEnd = inputText.selectionEnd;
-    const input = inputText.value;
-    inputText.value =
-      input.substring(0, selectionStart) +
-      `{PRONOUN/replacer/${e.target.dataset.pronounType}}` +
-      input.substring(selectionEnd);
-    refreshOutput();
-  });
-}
-
-verbQuickAdd.addEventListener("click", (e) => {
-  const selectionStart = inputText.selectionStart;
-  const selectionEnd = inputText.selectionEnd;
-  const input = inputText.value;
-  inputText.value =
-    input.substring(0, selectionStart) +
-    `{VERB/replacer/are/is}` +
-    input.substring(selectionEnd);
   refreshOutput();
 });
 
