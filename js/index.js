@@ -22,11 +22,13 @@ const catDict = {
 };
 const outputText = document.getElementById("outputText");
 const inputText = document.getElementById("inputText");
+const characterCount = document.getElementById("output-character-count")
 
 function refreshOutput() {
   const input = inputText.value;
   showOnlyUsedReplacers();
   outputText.value = processText(input, catDict);
+  characterCount.textContent = outputText.value.length;
 }
 
 function showOnlyUsedReplacers() {
