@@ -57,6 +57,8 @@ function showOnlyUsedReplacers() {
   }
 }
 
+new bootstrap.Tooltip(document.getElementById("pronounify-tooltip"));
+
 inputText.addEventListener("input", (e) => {
   refreshOutput();
 });
