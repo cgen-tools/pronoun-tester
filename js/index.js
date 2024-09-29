@@ -1,4 +1,5 @@
 import { processText, sheHer, heHim, theyThem } from "./pronouns.js";
+import { pronounify } from "./pronounify.js";
 
 const pronounDict = {
   sheHer: sheHer,
@@ -23,6 +24,8 @@ const catDict = {
 const outputText = document.getElementById("outputText");
 const inputText = document.getElementById("inputText");
 const characterCount = document.getElementById("output-character-count")
+const pronounifySelect = document.getElementById("pronounify-select");
+const pronounifyButton = document.getElementById("pronounify-button");
 
 function refreshOutput() {
   const input = inputText.value;
@@ -58,6 +61,17 @@ inputText.addEventListener("input", (e) => {
   refreshOutput();
 });
 
+pronounifyButton.addEventListener("click", (e) => {
+  const input = inputText.value;
+  const selectStart = inputText.selectionStart;
+  const selectEnd = inputText.selectionEnd;
+  const selectedText = input.substring(selectStart, selectEnd);
+  const replaceText = pronounify(pronounifySelect.value, selectedText);
+
+  inputText.value = input.substring(0, selectStart) + replaceText + input.substring(selectEnd);
+  refreshOutput();
+});
+
 for (const replacer in catDict) {
   const pronounSelector = document.createElement("div");
   pronounSelector.id = `${replacer}-div`;
@@ -77,4 +91,7 @@ for (const replacer in catDict) {
     });
 
   document.getElementById("pronoun-selectors").appendChild(pronounSelector);
+
+  // add to pronounify selector
+  pronounifySelect.options.add(new Option (`${catDict[replacer][0]} (${replacer})`, replacer));
 }
