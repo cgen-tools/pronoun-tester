@@ -39,7 +39,7 @@ export function processText(text, catDict) {
         let pronoun = pronouns[pronounType];
         if (pronoun === undefined) {
           throw new Error(`${pronoun} not found in pronouns dict`);
-        }  
+        }
         if (innerDetails.slice(-1)[0] === "CAP") {
           pronoun = pronoun.charAt(0).toUpperCase() + pronoun.substring(1); // title case
         }
