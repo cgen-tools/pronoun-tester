@@ -14,8 +14,8 @@ const wordToTag = {
   "don't": "{VERB/@@@/do/does}n't",
   "haven't": "{VERB/@@@/have/has}n't",
 
-  was: "{VERB/@@@/were/was}",
-  "wasn't": "{VERB/@@@/were/was}n't",
+  were: "{VERB/@@@/were/was}",
+  "weren't": "{VERB/@@@/were/was}n't",
 };
 
 export function pronounify(cat, wordRaw) {
