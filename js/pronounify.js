@@ -39,9 +39,19 @@ export function pronounify(cat, wordRaw) {
     return tag;
   } else {
     // assume it's a regular verb in present tense
-    if (cap) {
-      return `{VERB/${cat}/${word}/${word}s/CAP}`;
+    var thirdPersonSingularConjugation = word;
+    var thirdPersonPluralConjugation = word;
+    if (word.endsWith("o") || word.endsWith("ch") || word.endsWith("sh") | word.endsWith("ss")) {
+      thirdPersonSingularConjugation = word + "es";
+    } else if (word.endsWith("y")) {
+      thirdPersonSingularConjugation = word.substring(0, word.length - 1) + "ies";
+    } else {
+      thirdPersonSingularConjugation = word + "s";
     }
-    return `{VERB/${cat}/${word}/${word}s}`;
+
+    if (cap) {
+      return `{VERB/${cat}/${thirdPersonPluralConjugation}/${thirdPersonSingularConjugation}/CAP}`;
+    }
+    return `{VERB/${cat}/${thirdPersonPluralConjugation}/${thirdPersonSingularConjugation}}`;
   }
 }
