@@ -10,9 +10,9 @@ const wordToTag = {
   are: "{VERB/@@@/are/is}",
   do: "{VERB/@@@/do/does}",
   have: "{VERB/@@@/have/has}",
-  "aren't": "{VERB/@@@/are/is}n't",
-  "don't": "{VERB/@@@/do/does}n't",
-  "haven't": "{VERB/@@@/have/has}n't",
+  "aren't": "{VERB/@@@/aren't/isn't}",
+  "don't": "{VERB/@@@/don't/doesn't}",
+  "haven't": "{VERB/@@@/haven't/hasn't}",
 
   were: "{VERB/@@@/were/was}",
   "weren't": "{VERB/@@@/were/was}n't",
